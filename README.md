@@ -148,7 +148,22 @@ The GreenHealer consultation workflow integrates plant pathology analysis into a
 
 Beyond real-time diagnosis, GreenHealer serves as a comprehensive knowledge base for sustainable agriculture. The curated botanical repository provides detailed information on disease morphology, targeted treatment methods, and layered prevention strategies. This enables farmers and specialists to go beyond simple identification and implement effective, evidence-based interventions to protect crop health.
 
-To ensure technical accuracy, the pathological data and treatment guidelines within this repository have been compiled from authoritative academic literature and peer-reviewed research in the field of plant pathology. This research-driven approach ensures that the diagnostic outputs are aligned with established agricultural science, providing users with evidence-based and actionable field guidance.
+---
+
+<table width="100%">
+  <tr align="center" valign="top">
+    <td width="50%">
+      <b>Disease Library</b><br><br>
+      <img src="docs/assets/app-library-screen.png" width="100%" alt="Disease Library">
+    </td>
+    <td width="50%">
+      <b>Scan History</b><br><br>
+      <img src="docs/assets/app-history-screen.png" width="100%" alt="Scan History">
+    </td>
+  </tr>
+</table>
+
+The Disease Library serves as a searchable botanical encyclopedia covering all **26 disease classes** across **11 crop species**, enabling users to explore pathological profiles independently of the diagnostic workflow. Three species (Blueberry, Raspberry, Soybean) are excluded from the library as they contain only healthy reference classes. The Scan History module maintains a persistent, timestamped timeline of every diagnosis performed — recording captured images, predicted disease classes, and confidence scores — allowing farmers to track disease progression across their crops and make informed treatment decisions over time.
 
 ## Methodology & Technical Specifications
 

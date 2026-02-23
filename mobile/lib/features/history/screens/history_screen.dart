@@ -104,30 +104,36 @@ class _HistoryScreenState extends State<HistoryScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        toolbarHeight: size.height * 0.22,
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 32.0),
-            // Dynamic action buttons
-            child: ListenableBuilder(
-              listenable: _controller,
-              builder: (context, _) {
-                return Row(
-                  children: [
-                    CircularIconButton(
-                      icon: Icons.filter_list_rounded,
-                      tooltip: l10n.filterTitle,
-                      onPressed: () => _showFilterSheet(context),
-                    ),
-                    if (_controller.history.isNotEmpty)
-                      CircularIconButton(
-                        icon: Icons.delete_sweep_outlined, 
-                        tooltip: l10n.dialogClearTitle,
-                        onPressed: () => _showClearAllDialog(context),
-                      ),
-                  ],
-                );
-              },
-            ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 32.0, bottom: 12.0),
+                // Dynamic action buttons
+                child: ListenableBuilder(
+                  listenable: _controller,
+                  builder: (context, _) {
+                    return Row(
+                      children: [
+                        CircularIconButton(
+                          icon: Icons.filter_list_rounded,
+                          tooltip: l10n.filterTitle,
+                          onPressed: () => _showFilterSheet(context),
+                        ),
+                        if (_controller.history.isNotEmpty)
+                          CircularIconButton(
+                            icon: Icons.delete_sweep_outlined, 
+                            tooltip: l10n.dialogClearTitle,
+                            onPressed: () => _showClearAllDialog(context),
+                          ),
+                      ],
+                    );
+                  },
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -173,7 +179,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
 
                 // Render history list
                 return ListView.builder(
-                  padding: const EdgeInsets.fromLTRB(20, 10, 20, 80),
+                  padding: const EdgeInsets.fromLTRB(20, 8, 20, 80),
                   itemCount: _controller.history.length,
                   itemBuilder: (context, index) {
                     final item = _controller.history[index];

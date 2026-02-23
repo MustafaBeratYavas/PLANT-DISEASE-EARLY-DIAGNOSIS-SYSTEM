@@ -1,10 +1,13 @@
 import argparse
-import os
 import csv
+import os
 import time
+
 import cv2
 import numpy as np
+
 from src.core.config import ConfigLoader
+
 
 class Predictor:
     def __init__(self,
@@ -64,7 +67,7 @@ class Predictor:
     def _load_labels(self, path: str) -> list[str]:
         # Parse label mappings
         class_names = {}
-        with open(path, 'r') as f:
+        with open(path) as f:
             reader = csv.DictReader(f)
             for row in reader:
                 class_names[int(row['index'])] = row['class_name']

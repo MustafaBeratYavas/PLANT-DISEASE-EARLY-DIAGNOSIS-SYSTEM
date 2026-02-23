@@ -1,9 +1,12 @@
 import os
-import shutil
 import random
-from tqdm import tqdm
+import shutil
 from pathlib import Path
+
+from tqdm import tqdm
+
 from src.core.config import ConfigLoader
+
 
 class DataPreparer:
     VALID_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.bmp'}

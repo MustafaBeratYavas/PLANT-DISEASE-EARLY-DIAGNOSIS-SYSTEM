@@ -1,7 +1,9 @@
 import os
+
 import keras
 import numpy as np
 from sklearn.utils import class_weight
+
 
 class Trainer:
     def __init__(self,

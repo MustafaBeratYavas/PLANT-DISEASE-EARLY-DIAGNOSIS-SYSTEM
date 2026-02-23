@@ -1,12 +1,14 @@
 import argparse
+import csv
 import os
 import shutil
-import csv
-import numpy as np
-import tensorflow as tf
 from pathlib import Path
+
+import tensorflow as tf
+
 from src.core.config import ConfigLoader
 from src.data.loader import PlantDataLoader
+
 
 def convert_to_tflite(model_path: str, output_dir: str, config: dict) -> None:
     # Load trained keras model
@@ -88,7 +90,7 @@ def _copy_assets_to_mobile(model_source_path: Path) -> None:
     if source_labels.exists():
         labels_dest = mobile_assets / "labels.txt"
 
-        with open(source_labels, 'r') as f_csv, open(labels_dest, 'w') as f_txt:
+        with open(source_labels) as f_csv, open(labels_dest, 'w') as f_txt:
             reader = csv.DictReader(f_csv)
             for row in reader:
                 f_txt.write(f"{row['class_name']}\n")

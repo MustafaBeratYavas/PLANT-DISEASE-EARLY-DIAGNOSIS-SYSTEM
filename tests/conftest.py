@@ -1,5 +1,6 @@
 import pytest
 
+
 # Sample config fixture
 @pytest.fixture
 def sample_config():

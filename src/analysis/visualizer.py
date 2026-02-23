@@ -1,11 +1,13 @@
 import os
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
+
 import keras
-from sklearn.metrics import confusion_matrix, precision_recall_curve, roc_curve
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import seaborn as sns
 from sklearn.manifold import TSNE
+from sklearn.metrics import confusion_matrix, precision_recall_curve, roc_curve
+
 
 class Visualizer:
     def __init__(self, output_dir: str, config: dict):

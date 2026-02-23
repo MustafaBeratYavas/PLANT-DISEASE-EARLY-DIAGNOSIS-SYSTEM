@@ -1,16 +1,19 @@
 import argparse
-import os
 import csv
+import os
+
 import keras
-from src.core.config import ConfigLoader
-from src.data.loader import PlantDataLoader
+
 from src.analysis.evaluator import Evaluator
 from src.analysis.visualizer import Visualizer
+from src.core.config import ConfigLoader
+from src.data.loader import PlantDataLoader
+
 
 def load_labels(path: str) -> list[str]:
     # Parse label CSV file
     class_names = {}
-    with open(path, 'r') as f:
+    with open(path) as f:
         reader = csv.DictReader(f)
         for row in reader:
             class_names[int(row['index'])] = row['class_name']

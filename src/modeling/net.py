@@ -1,5 +1,6 @@
 import keras
 
+
 class PlantModel:
     def __init__(self, config: dict, num_classes: int):
         # Store model configuration

@@ -1,5 +1,6 @@
 import os
 
+
 class PathManager:
     def __init__(self, config: dict, base_root: str = "outputs") -> None:
         # Initialize base paths

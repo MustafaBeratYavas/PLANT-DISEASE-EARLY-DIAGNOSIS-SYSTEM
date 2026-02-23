@@ -1,10 +1,11 @@
 import yaml
 
+
 class ConfigLoader:
     @staticmethod
     def load(path: str) -> dict:
         # Read YAML config file
-        with open(path, 'r') as f:
+        with open(path) as f:
             raw = yaml.safe_load(f)
 
         # Validate required sections

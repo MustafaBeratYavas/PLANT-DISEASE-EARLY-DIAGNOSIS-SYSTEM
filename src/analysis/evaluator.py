@@ -1,10 +1,12 @@
-import time
 import os
+import time
+
+import keras
 import numpy as np
 import pandas as pd
-import keras
 import tensorflow as tf
 from sklearn.metrics import classification_report
+
 
 class Evaluator:
     def __init__(self,

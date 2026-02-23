@@ -31,22 +31,22 @@ class DiseaseTile extends StatelessWidget {
         : const Color(0xFF2E7D32);
 
     final iconBoxColor = isCustomBackground 
-        ? Colors.white.withOpacity(0.2) 
-        : const Color(0xFF2E7D32).withOpacity(0.1);
+        ? Colors.white.withValues(alpha: 0.2) 
+        : const Color(0xFF2E7D32).withValues(alpha: 0.1);
 
     final arrowColor = isCustomBackground 
         ? Colors.white70 
-        : theme.iconTheme.color?.withOpacity(0.5);
+        : theme.iconTheme.color?.withValues(alpha: 0.5);
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       // Main card container
       decoration: BoxDecoration(
-        color: backgroundColor ?? theme.cardColor.withOpacity(0.9),
+        color: backgroundColor ?? theme.cardColor.withValues(alpha: 0.9),
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black.withValues(alpha: 0.1),
             blurRadius: 4,
             offset: const Offset(0, 2),
           ),

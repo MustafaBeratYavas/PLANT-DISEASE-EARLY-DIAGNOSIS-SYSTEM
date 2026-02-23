@@ -109,11 +109,11 @@ class _DiseaseDetailScreenState extends State<DiseaseDetailScreen> with SingleTi
             body: Container(
               // Content card container
               decoration: BoxDecoration(
-                color: theme.cardColor.withOpacity(0.98),
+                color: theme.cardColor.withValues(alpha: 0.98),
                 borderRadius: const BorderRadius.vertical(top: Radius.circular(30)),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
+                    color: Colors.black.withValues(alpha: 0.2),
                     blurRadius: 15,
                     offset: const Offset(0, -5),
                   ),
@@ -128,7 +128,7 @@ class _DiseaseDetailScreenState extends State<DiseaseDetailScreen> with SingleTi
                       width: 40,
                       height: 4,
                       decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.3),
+                        color: Colors.grey.withValues(alpha: 0.3),
                         borderRadius: BorderRadius.circular(2),
                       ),
                     ),
@@ -151,7 +151,7 @@ class _DiseaseDetailScreenState extends State<DiseaseDetailScreen> with SingleTi
                     child: Container(
                       height: 50,
                       decoration: BoxDecoration(
-                        color: theme.colorScheme.onSurface.withOpacity(0.08),
+                        color: theme.colorScheme.onSurface.withValues(alpha: 0.08),
                         borderRadius: BorderRadius.circular(25),
                       ),
                       child: TabBar(
@@ -161,14 +161,14 @@ class _DiseaseDetailScreenState extends State<DiseaseDetailScreen> with SingleTi
                           color: AppColors.primary,
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(0.2),
+                              color: Colors.black.withValues(alpha: 0.2),
                               blurRadius: 4,
                               offset: const Offset(0, 2),
                             ),
                           ],
                         ),
                         labelColor: Colors.white,
-                        unselectedLabelColor: theme.colorScheme.onSurface.withOpacity(0.6),
+                        unselectedLabelColor: theme.colorScheme.onSurface.withValues(alpha: 0.6),
                         labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
                         indicatorSize: TabBarIndicatorSize.tab,
                         dividerColor: Colors.transparent,
@@ -238,7 +238,7 @@ class _DiseaseDetailScreenState extends State<DiseaseDetailScreen> with SingleTi
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: AppColors.primary.withOpacity(0.1),
+                color: AppColors.primary.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(icon, size: 20, color: AppColors.primary),

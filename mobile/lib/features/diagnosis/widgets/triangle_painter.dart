@@ -14,7 +14,7 @@ class TrianglePainter extends CustomPainter {
       ..lineTo(size.width / 2, size.height)
       ..close();
 
-    canvas.drawShadow(path, Colors.black.withOpacity(0.1), 10, true);
+    canvas.drawShadow(path, Colors.black.withValues(alpha: 0.1), 10, true);
     canvas.drawPath(path, paint);
   }
 

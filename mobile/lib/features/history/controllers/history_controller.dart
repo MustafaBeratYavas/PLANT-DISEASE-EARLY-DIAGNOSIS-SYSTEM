@@ -38,7 +38,9 @@ class HistoryController extends ChangeNotifier {
       final file = getIt<MediaService>().getFileFromStorage(item.imagePath);
 
       // Delete associated image
+      // ignore: avoid_slow_async_io
       if (await file.exists()) {
+        // ignore: avoid_slow_async_io
         await file.delete();
       }
       await _repository.deleteScan(id);
@@ -51,7 +53,9 @@ class HistoryController extends ChangeNotifier {
     final mediaService = getIt<MediaService>();
     for (final item in _allHistory) {
       final file = mediaService.getFileFromStorage(item.imagePath);
+      // ignore: avoid_slow_async_io
       if (await file.exists()) {
+        // ignore: avoid_slow_async_io
         await file.delete();
       }
     }

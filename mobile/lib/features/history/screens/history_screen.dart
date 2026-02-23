@@ -162,14 +162,14 @@ class _HistoryScreenState extends State<HistoryScreen> {
                         Icon(
                           Icons.history_toggle_off_rounded, 
                           size: 80, 
-                          color: theme.colorScheme.onSurface.withOpacity(0.3),
+                          color: theme.colorScheme.onSurface.withValues(alpha: 0.3),
                         ),
                         const SizedBox(height: 16),
                         Text(
                           l10n.historyEmpty,
                           style: TextStyle(
                             fontSize: 16,
-                            color: theme.colorScheme.onSurface.withOpacity(0.6),
+                            color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
                             fontWeight: FontWeight.w500,
                           ),
                         ),

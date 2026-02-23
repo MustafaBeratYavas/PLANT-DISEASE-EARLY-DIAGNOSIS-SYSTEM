@@ -35,11 +35,11 @@ class HistoryItemTile extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       // Card container style
       decoration: BoxDecoration(
-        color: theme.cardColor.withOpacity(0.95),
+        color: theme.cardColor.withValues(alpha: 0.95),
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -90,7 +90,7 @@ class HistoryItemTile extends StatelessWidget {
                       Text(
                         '$dateStr • $timeStr',
                         style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurface.withOpacity(0.5),
+                          color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
                         ),
                       ),
                       const SizedBox(height: 8),
@@ -100,7 +100,7 @@ class HistoryItemTile extends StatelessWidget {
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                             decoration: BoxDecoration(
-                              color: _getConfidenceColor(item.confidence).withOpacity(0.1),
+                              color: _getConfidenceColor(item.confidence).withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(6),
                             ),
                             child: Text(
@@ -118,7 +118,7 @@ class HistoryItemTile extends StatelessWidget {
                             Icon(
                               Icons.arrow_forward_ios_rounded,
                               size: 14,
-                              color: theme.colorScheme.primary.withOpacity(0.5),
+                              color: theme.colorScheme.primary.withValues(alpha: 0.5),
                             ),
                         ],
                       ),

@@ -54,7 +54,7 @@ class BottomNavBar extends StatelessWidget {
           // Active state color
           color: isSelected 
               ? colorScheme.primary 
-              : colorScheme.onSurface.withOpacity(0.4),
+              : colorScheme.onSurface.withValues(alpha: 0.4),
           size: 26,
         ),
       ),

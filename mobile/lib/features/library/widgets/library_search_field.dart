@@ -23,11 +23,11 @@ class LibrarySearchField extends StatelessWidget {
       // Container layout style
       margin: const EdgeInsets.only(left: 16, right: 16, top: 95, bottom: 10),
       decoration: BoxDecoration(
-        color: theme.cardColor.withOpacity(0.9),
+        color: theme.cardColor.withValues(alpha: 0.9),
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.2),
+            color: Colors.black.withValues(alpha: 0.2),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),

@@ -111,7 +111,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
                         disease: disease,
                         localizedName: name,
                         backgroundColor: _isSearching
-                            ? AppColors.primary.withOpacity(0.9)
+                            ? AppColors.primary.withValues(alpha: 0.9)
                             : null,
                         onTap: () {
                           Navigator.push<void>(

@@ -13,8 +13,8 @@ class CircularBackButton extends StatelessWidget {
 
     // Adaptive background style
     final bgColor = isDark
-        ? theme.colorScheme.surfaceContainerHighest.withOpacity(0.8)
-        : theme.colorScheme.surface.withOpacity(0.9);
+        ? theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.8)
+        : theme.colorScheme.surface.withValues(alpha: 0.9);
 
     final iconColor = theme.colorScheme.onSurface;
 
@@ -34,7 +34,7 @@ class CircularBackButton extends StatelessWidget {
             shape: BoxShape.circle,
              boxShadow: [
                BoxShadow(
-                 color: Colors.black.withOpacity(0.1),
+                 color: Colors.black.withValues(alpha: 0.1),
                  blurRadius: 4,
                  offset: const Offset(0, 2),
                ),

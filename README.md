@@ -1,5 +1,5 @@
 <div align="center">
-  <video src="docs/assets/app.webm" width="100%" controls autoplay loop muted playsinline></video>
+  <img src="docs/assets/app.gif" width="100%" alt="GreenHealer Demo">
   <h1>PLANT DISEASE EARLY DIAGNOSIS SYSTEM</h1>
   <p>
     <strong>GreenHealer:</strong> Offline & Real-time Plant Pathology on the Edge

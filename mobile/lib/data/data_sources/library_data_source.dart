@@ -11,19 +11,22 @@ class LibraryDataSource {
       
       // Load data asset
       final String jsonString = await rootBundle.loadString('assets/data/$fileName');
-      final Map<String, dynamic> jsonMap = json.decode(jsonString);
-      
-      final diseaseData = jsonMap[diseaseId];
+      // Decode JSON string
+      final Map<String, dynamic> decodedJson = json.decode(jsonString) as Map<String, dynamic>;
 
-      // Validate data existence
-      if (diseaseData == null) return null;
+      // Find the specific disease data using diseaseId
+      final Map<String, dynamic>? diseaseData = decodedJson[diseaseId] as Map<String, dynamic>?;
+
+      if (diseaseData == null) {
+        return null; // Disease not found
+      }
 
       // Map to model
       return DiseaseDetailModel(
         id: diseaseId,
-        symptoms: List<String>.from(diseaseData['symptoms']),
-        treatment: List<String>.from(diseaseData['treatment']),
-        prevention: List<String>.from(diseaseData['prevention']),
+        symptoms: List<String>.from(diseaseData['symptoms'] as List<dynamic>),
+        treatment: List<String>.from(diseaseData['treatment'] as List<dynamic>),
+        prevention: List<String>.from(diseaseData['prevention'] as List<dynamic>),
       );
     } catch (e) {
       // Handle load errors

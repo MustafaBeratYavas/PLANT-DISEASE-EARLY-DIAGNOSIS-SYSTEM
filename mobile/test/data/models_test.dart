@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mobile/data/models/scan_history_model.dart';
 import 'package:mobile/data/models/history_filter_model.dart';
+import 'package:mobile/data/models/scan_history_model.dart';
 
 void main() {
   group('ScanHistoryModel', () {

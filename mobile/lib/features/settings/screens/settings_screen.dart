@@ -4,12 +4,12 @@ import '../../../../core/l10n/app_localizations.dart';
 import '../controllers/settings_controller.dart';
 
 class SettingsScreen extends StatelessWidget {
-  final SettingsController controller;
 
   const SettingsScreen({
     super.key,
     required this.controller,
   });
+  final SettingsController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class SettingsScreen extends StatelessWidget {
         controller.locale?.languageCode == 'tr' ? l10n.langTurkish : l10n.langEnglish,
       ),
       onTap: () {
-        showDialog(
+        showDialog<void>(
           context: context,
           builder: (context) => SimpleDialog(
             title: Text(l10n.settingsLanguage),
@@ -95,7 +95,7 @@ class SettingsScreen extends StatelessWidget {
       title: Text(l10n.settingsTheme),
       subtitle: Text(_getThemeName(controller.themeMode, l10n)),
       onTap: () {
-        showDialog(
+        showDialog<void>(
           context: context,
           builder: (context) => SimpleDialog(
             title: Text(l10n.settingsTheme),

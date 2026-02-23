@@ -16,12 +16,6 @@ enum HealthStatusFilter {
 }
 
 class HistoryFilterModel {
-  // Active time filter
-  final DateFilter dateFilter;
-  // Active health filter
-  final HealthStatusFilter healthFilter;
-  // Selected plant types
-  final Set<String> selectedPlants;
 
   // Default filter configuration
   const HistoryFilterModel({
@@ -29,6 +23,12 @@ class HistoryFilterModel {
     this.healthFilter = HealthStatusFilter.all,
     this.selectedPlants = const {},
   });
+  // Active time filter
+  final DateFilter dateFilter;
+  // Active health filter
+  final HealthStatusFilter healthFilter;
+  // Selected plant types
+  final Set<String> selectedPlants;
 
   // Create modified copy
   HistoryFilterModel copyWith({

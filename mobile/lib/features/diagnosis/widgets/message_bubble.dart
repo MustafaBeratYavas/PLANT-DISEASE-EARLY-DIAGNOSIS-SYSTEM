@@ -4,10 +4,6 @@ import 'triangle_painter.dart';
 
 // Custom bubble widget
 class MessageBubble extends StatelessWidget {
-  final String? title;
-  final String message;
-  final Widget? action;
-  final int animationDurationMs;
 
   const MessageBubble({
     super.key,
@@ -16,6 +12,10 @@ class MessageBubble extends StatelessWidget {
     this.action,
     this.animationDurationMs = LayoutConstants.textAnimationMs,
   });
+  final String? title;
+  final String message;
+  final Widget? action;
+  final int animationDurationMs;
 
   @override
   Widget build(BuildContext context) {

@@ -6,13 +6,13 @@ import '../../../data/repositories/history_repository.dart';
 import '../../../services/media/media_service.dart';
 
 class HistoryController extends ChangeNotifier {
+
+  // Constructor injection
+  HistoryController(this._repository);
   final HistoryRepository _repository;
   List<ScanHistoryModel> _allHistory = [];
   List<ScanHistoryModel> _filteredHistory = [];
   HistoryFilterModel _filter = const HistoryFilterModel();
-
-  // Constructor injection
-  HistoryController(this._repository);
 
   // Public getters
   List<ScanHistoryModel> get history => List.unmodifiable(_filteredHistory);
@@ -49,7 +49,7 @@ class HistoryController extends ChangeNotifier {
   // Clear all history
   Future<void> clearHistory() async {
     final mediaService = getIt<MediaService>();
-    for (var item in _allHistory) {
+    for (final item in _allHistory) {
       final file = mediaService.getFileFromStorage(item.imagePath);
       if (await file.exists()) {
         await file.delete();

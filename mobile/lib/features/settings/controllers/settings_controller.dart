@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import '../../../services/storage/preferences_service.dart';
 
 class SettingsController with ChangeNotifier {
+
+  SettingsController(this._preferencesService);
   final PreferencesService _preferencesService;
 
   ThemeMode _themeMode = ThemeMode.system;
   Locale? _locale;
-
-  SettingsController(this._preferencesService);
 
   // State getters
   ThemeMode get themeMode => _themeMode;

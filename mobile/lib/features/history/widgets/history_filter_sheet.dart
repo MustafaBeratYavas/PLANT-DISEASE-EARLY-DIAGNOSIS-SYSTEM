@@ -4,9 +4,9 @@ import '../../../../data/models/history_filter_model.dart';
 import '../controllers/history_controller.dart';
 
 class HistoryFilterSheet extends StatefulWidget {
-  final HistoryController controller;
 
   const HistoryFilterSheet({super.key, required this.controller});
+  final HistoryController controller;
 
   @override
   State<HistoryFilterSheet> createState() => _HistoryFilterSheetState();

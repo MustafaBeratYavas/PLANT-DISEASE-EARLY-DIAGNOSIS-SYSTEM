@@ -1,22 +1,23 @@
 import 'dart:io';
-import 'dart:typed_data';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:tflite_flutter/tflite_flutter.dart';
 import 'package:image/image.dart' as img;
+import 'package:tflite_flutter/tflite_flutter.dart';
+
 import '../../core/constants/app_assets.dart';
 
 // Isolate transfer payload
 class InferenceData {
-  final Uint8List imageBytes;
-  final Uint8List modelBytes;
-  final List<String> labels;
 
   InferenceData({
     required this.imageBytes,
     required this.modelBytes,
     required this.labels,
   });
+  final Uint8List imageBytes;
+  final Uint8List modelBytes;
+  final List<String> labels;
 }
 
 class ClassifierService {
@@ -62,7 +63,7 @@ class ClassifierService {
     );
 
     // Run in background
-    return await compute(_runInferenceInIsolate, inferenceData);
+    return compute(_runInferenceInIsolate, inferenceData);
   }
 }
 
@@ -78,10 +79,10 @@ Future<List<Map<String, dynamic>>> _runInferenceInIsolate(InferenceData data) as
 
   // Check input tensor type
   final inputType = interpreter.getInputTensor(0).type;
-  final isQuantized = (inputType == TfLiteType.kTfLiteUInt8);
+  final isQuantized = (inputType == TensorType.uint8);
 
   // Construct input tensor
-  var input = List.generate(
+  final input = List.generate(
     1,
     (_) => List.generate(
       224,
@@ -111,7 +112,7 @@ Future<List<Map<String, dynamic>>> _runInferenceInIsolate(InferenceData data) as
 
   // Allocate output tensor
   final outputShape = interpreter.getOutputTensor(0).shape;
-  final output = List.filled(outputShape[1], 0.0).reshape([1, outputShape[1]]);
+  final output = List<double>.filled(outputShape[1], 0.0).reshape<double>([1, outputShape[1]]);
 
   // Execute model inference
   interpreter.run(input, output);
@@ -135,7 +136,7 @@ Future<List<Map<String, dynamic>>> _runInferenceInIsolate(InferenceData data) as
 
   // Sort by confidence desc
   results.sort((a, b) =>
-      (b['confidence'] as double).compareTo(a['confidence'] as double));
+      (b['confidence'] as double).compareTo(a['confidence'] as double),);
 
   return results.take(5).toList();
 }

@@ -105,7 +105,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
                     itemBuilder: (context, index) {
                       final disease = _filteredDiseases[index];
                       final name = DiseaseLabelMapper.getLocalizedLabel(
-                          context, disease.localizationKey);
+                          context, disease.localizationKey,);
 
                       return DiseaseTile(
                         disease: disease,
@@ -114,9 +114,9 @@ class _LibraryScreenState extends State<LibraryScreen> {
                             ? AppColors.primary.withOpacity(0.9)
                             : null,
                         onTap: () {
-                          Navigator.push(
+                          Navigator.push<void>(
                             context,
-                            MaterialPageRoute(
+                            MaterialPageRoute<void>(
                               builder: (context) => DiseaseDetailScreen(
                                 diseaseName: name,
                                 diseaseId: disease.localizationKey,

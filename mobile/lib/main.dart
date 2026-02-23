@@ -24,7 +24,7 @@ void main() {
       systemNavigationBarIconBrightness: Brightness.dark,
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.dark,
-    ));
+    ),);
 
     runApp(const GreenHealerApp());
   }, (error, stack) {

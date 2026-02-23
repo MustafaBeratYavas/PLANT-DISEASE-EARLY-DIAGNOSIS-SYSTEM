@@ -6,14 +6,14 @@ import '../../../data/models/scan_history_model.dart';
 import '../../../services/media/media_service.dart';
 
 class HistoryItemTile extends StatelessWidget {
-  final ScanHistoryModel item;
-  final VoidCallback onTap;
 
   const HistoryItemTile({
     super.key, 
     required this.item,
     required this.onTap,
   });
+  final ScanHistoryModel item;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {

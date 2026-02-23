@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/constants/app_colors.dart';
+import '../../../../core/l10n/app_localizations.dart';
 import '../../../../core/widgets/circular_back_button.dart';
 import '../../../../data/data_sources/library_data_source.dart';
 import '../../../../data/models/disease_detail_model.dart';
-import '../../../../core/l10n/app_localizations.dart';
 
 class DiseaseDetailScreen extends StatefulWidget {
-  final String diseaseName;
-  final String diseaseId;
 
   const DiseaseDetailScreen({
     super.key,
     required this.diseaseName,
     required this.diseaseId,
   });
+  final String diseaseName;
+  final String diseaseId;
 
   @override
   State<DiseaseDetailScreen> createState() => _DiseaseDetailScreenState();

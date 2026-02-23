@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CircularBackButton extends StatelessWidget {
-  final VoidCallback? onPressed;
 
   const CircularBackButton({super.key, this.onPressed});
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +37,8 @@ class CircularBackButton extends StatelessWidget {
                  color: Colors.black.withOpacity(0.1),
                  blurRadius: 4,
                  offset: const Offset(0, 2),
-               )
-             ]
+               ),
+             ],
           ),
           child: InkWell(
             // Handle navigation action

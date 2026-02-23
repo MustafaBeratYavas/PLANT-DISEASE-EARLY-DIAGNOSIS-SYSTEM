@@ -3,11 +3,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/scan_history_model.dart';
 
 class HistoryRepository {
-  final SharedPreferences _prefs;
-  static const String _keyHistory = 'scan_history';
 
   // Inject dependencies
   HistoryRepository(this._prefs);
+  final SharedPreferences _prefs;
+  static const String _keyHistory = 'scan_history';
 
   // Get all history
   List<ScanHistoryModel> getHistory() {
@@ -16,7 +16,7 @@ class HistoryRepository {
 
     // Decode and sort
     return jsonList
-        .map((e) => ScanHistoryModel.fromJson(json.decode(e)))
+        .map((e) => ScanHistoryModel.fromJson(json.decode(e) as Map<String, dynamic>))
         .toList()
         ..sort((a, b) => b.date.compareTo(a.date));
   }

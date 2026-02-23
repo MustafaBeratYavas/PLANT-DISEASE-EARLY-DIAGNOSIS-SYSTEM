@@ -29,7 +29,7 @@ class ErrorHandler {
   // Handle with callback
   static Future<T?> handle<T>(
     Future<T> Function() action, {
-    Function(AppException)? onError,
+    void Function(AppException)? onError,
   }) async {
     try {
       return await action();

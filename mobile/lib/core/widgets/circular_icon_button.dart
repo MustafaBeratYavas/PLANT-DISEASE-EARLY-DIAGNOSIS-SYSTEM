@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
 class CircularIconButton extends StatelessWidget {
-  final IconData icon;
-  final VoidCallback? onPressed;
-  final String? tooltip;
 
   const CircularIconButton({
     super.key,
@@ -11,6 +8,9 @@ class CircularIconButton extends StatelessWidget {
     this.onPressed,
     this.tooltip,
   });
+  final IconData icon;
+  final VoidCallback? onPressed;
+  final String? tooltip;
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +42,8 @@ class CircularIconButton extends StatelessWidget {
                color: Colors.black.withOpacity(0.1),
                blurRadius: 4,
                offset: const Offset(0, 2),
-             )
-           ]
+             ),
+           ],
         ),
         child: InkWell(
           // Handle tap interaction

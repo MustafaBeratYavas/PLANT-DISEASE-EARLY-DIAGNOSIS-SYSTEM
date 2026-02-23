@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/di/service_locator.dart';
@@ -7,8 +8,8 @@ import '../../../../core/utils/disease_label_mapper.dart';
 import '../../../../core/widgets/circular_icon_button.dart';
 import '../../library/screens/disease_detail_screen.dart';
 import '../controllers/history_controller.dart';
-import '../widgets/history_item_tile.dart';
 import '../widgets/history_filter_sheet.dart';
+import '../widgets/history_item_tile.dart';
 
 class HistoryScreen extends StatefulWidget {
   const HistoryScreen({super.key});
@@ -38,9 +39,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
     final localizedName = DiseaseLabelMapper.getLocalizedLabel(context, jsonKey);
     
     // Open disease details
-    Navigator.push(
+    Navigator.push<void>(
       context,
-      MaterialPageRoute(
+      MaterialPageRoute<void>(
         builder: (context) => DiseaseDetailScreen(
           diseaseName: localizedName,
           diseaseId: jsonKey,
@@ -51,7 +52,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
 
   void _showFilterSheet(BuildContext context) {
     // Display filter sheet
-    showModalBottomSheet(
+    showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
@@ -63,7 +64,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
     final l10n = AppLocalizations.of(context)!;
     
     // Confirm history clearance
-    showDialog(
+    showDialog<void>(
       context: context,
       builder: (context) => AlertDialog(
         title: Text(l10n.dialogClearTitle),
@@ -74,7 +75,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
             onPressed: () => Navigator.pop(context),
             child: Text(
               l10n.actionCancel, 
-              style: const TextStyle(color: Colors.grey)
+              style: const TextStyle(color: Colors.grey),
             ),
           ),
           TextButton(
@@ -84,7 +85,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
             },
             child: Text(
               l10n.actionDelete, 
-              style: const TextStyle(color: AppColors.error, fontWeight: FontWeight.bold)
+              style: const TextStyle(color: AppColors.error, fontWeight: FontWeight.bold),
             ),
           ),
         ],
@@ -161,7 +162,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                         Icon(
                           Icons.history_toggle_off_rounded, 
                           size: 80, 
-                          color: theme.colorScheme.onSurface.withOpacity(0.3)
+                          color: theme.colorScheme.onSurface.withOpacity(0.3),
                         ),
                         const SizedBox(height: 16),
                         Text(

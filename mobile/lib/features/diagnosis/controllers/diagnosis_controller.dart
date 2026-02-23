@@ -1,16 +1,21 @@
 import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:uuid/uuid.dart';
+
+import '../../../core/di/service_locator.dart';
 import '../../../data/models/scan_history_model.dart';
-import '../../history/controllers/history_controller.dart';
 import '../../../services/ai/classifier_service.dart';
 import '../../../services/media/media_service.dart';
-import '../../../core/di/service_locator.dart';
+import '../../history/controllers/history_controller.dart';
 
 // UI state enum
 enum DiagnosisStatus { greeting, analyzing, result, error }
 
 class DiagnosisController extends ChangeNotifier {
+
+  // Constructor injection
+  DiagnosisController(this._classifierService, this._historyController);
   final ClassifierService _classifierService;
   final HistoryController _historyController;
 
@@ -19,9 +24,6 @@ class DiagnosisController extends ChangeNotifier {
   Map<String, dynamic>? _secondResult;
   String? _customBubbleMessage;
   String? _customBubbleTitle;
-
-  // Constructor injection
-  DiagnosisController(this._classifierService, this._historyController);
 
   // State getters
   DiagnosisStatus get status => _status;
@@ -61,7 +63,7 @@ class DiagnosisController extends ChangeNotifier {
 
     try {
       // Parallel minimum wait
-      final minWait = Future.delayed(const Duration(seconds: 3));
+      final minWait = Future<void>.delayed(const Duration(seconds: 3));
       final predictionFuture = _classifierService.predict(image);
 
       final results = await Future.wait([minWait, predictionFuture]);
@@ -98,8 +100,8 @@ class DiagnosisController extends ChangeNotifier {
     final historyItem = ScanHistoryModel(
       id: const Uuid().v4(),
       imagePath: fileName,
-      diseaseId: result['label'],
-      confidence: result['confidence'],
+      diseaseId: result['label'] as String,
+      confidence: (result['confidence'] as num).toDouble(),
       date: DateTime.now(),
     );
     _historyController.addScan(historyItem);

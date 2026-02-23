@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import '../../../../core/l10n/app_localizations.dart';
 
 class LibrarySearchField extends StatelessWidget {
-  final TextEditingController controller;
-  final ValueChanged<String> onChanged;
-  final VoidCallback onClear;
 
   const LibrarySearchField({
     super.key,
@@ -12,6 +9,9 @@ class LibrarySearchField extends StatelessWidget {
     required this.onChanged,
     required this.onClear,
   });
+  final TextEditingController controller;
+  final ValueChanged<String> onChanged;
+  final VoidCallback onClear;
 
   @override
   Widget build(BuildContext context) {

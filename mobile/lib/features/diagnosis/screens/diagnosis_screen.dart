@@ -8,9 +8,9 @@ import '../controllers/diagnosis_controller.dart';
 import '../widgets/message_bubble.dart';
 
 class DiagnosisScreen extends StatefulWidget {
-  final DiagnosisController controller;
 
   const DiagnosisScreen({super.key, required this.controller});
+  final DiagnosisController controller;
 
   @override
   State<DiagnosisScreen> createState() => _DiagnosisScreenState();
@@ -135,7 +135,7 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
             opacity: animation,
             child: ScaleTransition(
               scale: Tween<double>(begin: 0.95, end: 1.0).animate(
-                  CurvedAnimation(parent: animation, curve: Curves.easeOutBack)),
+                  CurvedAnimation(parent: animation, curve: Curves.easeOutBack),),
               child: child,
             ),
           );
@@ -155,7 +155,7 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
   Widget _buildMessageBubble(BuildContext context, DiagnosisController controller) {
     final l10n = AppLocalizations.of(context)!;
     String? title;
-    String message = "";
+    String message = '';
     Widget? actionButton;
 
     // Check custom bubble message
@@ -197,7 +197,7 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
                     if (jsonKey != null) {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
+                        MaterialPageRoute<void>(
                           builder: (context) => DiseaseDetailScreen(
                             diseaseName: label,
                             diseaseId: jsonKey,

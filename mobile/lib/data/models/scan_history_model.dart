@@ -1,4 +1,23 @@
 class ScanHistoryModel {
+
+  ScanHistoryModel({
+    required this.id,
+    required this.imagePath,
+    required this.diseaseId,
+    required this.confidence,
+    required this.date,
+  });
+
+  // Deserialize from JSON map
+  factory ScanHistoryModel.fromJson(Map<String, dynamic> json) {
+    return ScanHistoryModel(
+      id: json['id'] as String,
+      imagePath: json['imagePath'] as String,
+      diseaseId: json['diseaseId'] as String,
+      confidence: (json['confidence'] as num).toDouble(),
+      date: DateTime.parse(json['date'] as String),
+    );
+  }
   // Unique record identifier
   final String id;
   // Stored image file path
@@ -10,14 +29,6 @@ class ScanHistoryModel {
   // Scan creation timestamp
   final DateTime date;
 
-  ScanHistoryModel({
-    required this.id,
-    required this.imagePath,
-    required this.diseaseId,
-    required this.confidence,
-    required this.date,
-  });
-
   // Serialize to JSON map
   Map<String, dynamic> toJson() {
     return {
@@ -27,16 +38,5 @@ class ScanHistoryModel {
       'confidence': confidence,
       'date': date.toIso8601String(),
     };
-  }
-
-  // Deserialize from JSON map
-  factory ScanHistoryModel.fromJson(Map<String, dynamic> json) {
-    return ScanHistoryModel(
-      id: json['id'],
-      imagePath: json['imagePath'],
-      diseaseId: json['diseaseId'],
-      confidence: json['confidence'],
-      date: DateTime.parse(json['date']),
-    );
   }
 }

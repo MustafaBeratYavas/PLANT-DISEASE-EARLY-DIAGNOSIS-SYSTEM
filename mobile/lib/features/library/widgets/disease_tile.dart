@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import '../../../data/models/disease_model.dart';
 
 class DiseaseTile extends StatelessWidget {
-  final DiseaseModel disease;
-  final String localizedName;
-  final VoidCallback onTap;
-  final Color? backgroundColor;
 
   // Component constructor
   const DiseaseTile({
@@ -15,6 +11,10 @@ class DiseaseTile extends StatelessWidget {
     required this.onTap,
     this.backgroundColor,
   });
+  final DiseaseModel disease;
+  final String localizedName;
+  final VoidCallback onTap;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {

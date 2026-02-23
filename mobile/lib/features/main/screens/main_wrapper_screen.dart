@@ -14,9 +14,9 @@ import '../../settings/screens/settings_screen.dart';
 import '../widgets/bottom_nav_bar.dart';
 
 class MainWrapperScreen extends StatefulWidget {
-  final SettingsController settingsController;
 
   const MainWrapperScreen({super.key, required this.settingsController});
+  final SettingsController settingsController;
 
   @override
   State<MainWrapperScreen> createState() => _MainWrapperScreenState();
@@ -49,7 +49,7 @@ class _MainWrapperScreenState extends State<MainWrapperScreen> {
   }
 
   // Process image selection
-  void _handleImageSelection(ImageSource source) async {
+  Future<void> _handleImageSelection(ImageSource source) async {
     final File? image = await _mediaService.pickImage(source);
     if (image != null) {
       setState(() => _currentIndex = 0);
@@ -60,7 +60,7 @@ class _MainWrapperScreenState extends State<MainWrapperScreen> {
   // Show source selector
   void _showSourceModal() {
     final l10n = AppLocalizations.of(context)!;
-    showModalBottomSheet(
+    showModalBottomSheet<void>(
       context: context,
       backgroundColor: Colors.transparent,
       builder: (context) => Container(

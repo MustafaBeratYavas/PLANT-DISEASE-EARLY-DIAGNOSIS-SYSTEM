@@ -1,0 +1,114 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Build artifacts
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+/lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# IDE settings
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Testing cache
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# TensorFlow checkpoints
+checkpoint
+*.ckpt*
+events.out.tfevents.*
+
+# Dataset storage
+datasets/
+!datasets/.gitkeep
+
+# Training outputs
+outputs/
+!outputs/.gitkeep
+logs/
+!logs/.gitkeep
+
+# Flutter dependencies
+mobile/.dart_tool/
+mobile/.packages
+mobile/.pub-cache/
+mobile/.pub/
+mobile/build/
+
+# Flutter generated
+mobile/*.g.dart
+mobile/*.freezed.dart
+mobile/lib/generated/
+
+# iOS build files
+mobile/ios/Pods/
+mobile/ios/.symlinks/
+mobile/ios/Flutter/Flutter.framework
+mobile/ios/Flutter/Flutter.podspec
+mobile/ios/Flutter/Generated.xcconfig
+mobile/ios/Flutter/app.flx
+mobile/ios/Flutter/app.zip
+mobile/ios/Flutter/flutter_assets/
+mobile/ios/ServiceDefinitions.json
+mobile/ios/Runner/GeneratedPluginRegistrant.*
+
+# Android build files
+mobile/android/.gradle/
+mobile/android/local.properties
+mobile/android/**/gradle-wrapper.jar
+mobile/android/**/GeneratedPluginRegistrant.java
+mobile/android/key.properties
+mobile/android/**/*.keystore
+mobile/android/**/*.jks
+
+# macOS system files
+.DS_Store
+*.pem
+
+# Windows system files
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+.env
+.env.local
+*.secret

@@ -1,0 +1,82 @@
+import 'package:flutter/material.dart';
+import '../../../../core/constants/layout_constants.dart';
+import 'triangle_painter.dart';
+
+// Custom bubble widget
+class MessageBubble extends StatelessWidget {
+  final String? title;
+  final String message;
+  final Widget? action;
+  final int animationDurationMs;
+
+  const MessageBubble({
+    super.key,
+    this.title, 
+    required this.message,
+    this.action,
+    this.animationDurationMs = LayoutConstants.textAnimationMs,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final bubbleColor = theme.colorScheme.surface.withOpacity(0.95);
+
+    return Column(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(LayoutConstants.verticalPadding),
+          decoration: BoxDecoration(
+            color: bubbleColor,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 10,
+                offset: const Offset(0, 5),
+              ),
+            ],
+          ),
+          child: Column(
+            children: [
+              if (title != null) ...[
+                Text(
+                  title!,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.primary,
+                  ),
+                ),
+                const SizedBox(height: 8),
+              ],
+              AnimatedSwitcher(
+                duration: Duration(milliseconds: animationDurationMs),
+                child: Text(
+                  message,
+                  key: ValueKey<String>(message),
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: theme.colorScheme.onSurface,
+                    height: 1.4,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              if (action != null) ...[
+                 action!,
+              ],
+            ],
+          ),
+        ),
+        Transform.translate(
+          offset: const Offset(0, -1),
+          child: CustomPaint(
+            size: const Size(30, 20),
+            painter: TrianglePainter(color: bubbleColor),
+          ),
+        ),
+      ],
+    );
+  }
+}

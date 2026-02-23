@@ -1,0 +1,43 @@
+repos:
+  # Python hooks
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.2.0
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.8.0
+    hooks:
+      - id: mypy
+        args: [--ignore-missing-imports]
+        additional_dependencies: []
+        files: ^src/
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+        args: ['--maxkb=1000']
+      - id: check-merge-conflict
+
+  # Dart/Flutter hooks
+  - repo: local
+    hooks:
+      - id: dart-format
+        name: Dart Format
+        entry: bash -c 'cd mobile && dart format --set-exit-if-changed lib/'
+        language: system
+        files: \.dart$
+        pass_filenames: false
+
+      - id: flutter-analyze
+        name: Flutter Analyze
+        entry: bash -c 'cd mobile && flutter analyze --no-fatal-infos'
+        language: system
+        files: \.dart$
+        pass_filenames: false
